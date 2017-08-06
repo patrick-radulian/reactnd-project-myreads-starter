@@ -18,12 +18,7 @@ class BookShelf extends React.Component {
                     <ol className="books-grid">
                         {this.props.books.map((book) => (
                             <li key={book.id}>
-                                <BookInstance
-                                    title={ book.title }
-                                    authors={ book.authors }
-                                    imageURL={ book.imageLinks.smallThumbnail }
-                                    bookShelf={book.shelf}
-                                    onMoveBook={this.props.onMoveBook}/>
+                                <BookInstance book={book} onMoveBook={this.props.onMoveBook}/>
                             </li>
                         ))}
                     </ol>

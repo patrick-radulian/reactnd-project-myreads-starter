@@ -3,10 +3,7 @@ import PropTypes from "prop-types";
 
 class BookInstance extends React.Component {
     static PropTypes = {
-        imageURL: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        authors: PropTypes.array.isRequired,
-        bookShelf: PropTypes.string.isRequired,
+        book: PropTypes.object.isRequired,
         onMoveBook: PropTypes.func.isRequired
     }
 
@@ -16,13 +13,14 @@ class BookInstance extends React.Component {
 
     componentDidMount() {
         this.setState({ shelf: this.props.bookShelf });
+        console.log(this.props.book);
     }
 
     render() {
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.imageURL})` }}></div>
+                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})` }}></div>
 
                     <div className="book-shelf-changer">
                         <select onChange={(event) => this.props.onMoveBook(event.target.value)}>
@@ -35,10 +33,10 @@ class BookInstance extends React.Component {
                     </div>
                 </div>
 
-                <div className="book-title">{this.props.title}</div>
+                <div className="book-title">{this.props.book.title}</div>
                 <div className="book-authors">
                     <ul>
-                        {this.props.authors.map((author) => (
+                        {this.props.book.authors.map((author) => (
                             <li key={author}>{author}</li>
                         ))}
                     </ul>
