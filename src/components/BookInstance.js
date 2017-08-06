@@ -29,7 +29,7 @@ class BookInstance extends React.Component {
                 <div className="book-authors">
                     <ul>
                         {this.props.authors.map((author) => (
-                            <li>{author}</li>
+                            <li key={author}>{author}</li>
                         ))}
                     </ul>
                 </div>

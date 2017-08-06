@@ -20,7 +20,7 @@ class BookShelf extends React.Component {
                 <div className="bookshelf-books">
                     <ol className="books-grid">
                         {this.props.books.map((book) => (
-                            <li><BookInstance title={ book.title } authors={ book.authors } imageURL={ book.imageLinks.smallThumbnail }/></li>
+                            <li key={book.id}><BookInstance title={ book.title } authors={ book.authors } imageURL={ book.imageLinks.smallThumbnail }/></li>
                         ))}
                     </ol>
                 </div>
