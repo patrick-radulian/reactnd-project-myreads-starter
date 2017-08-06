@@ -5,7 +5,20 @@ class BookInstance extends React.Component {
     static PropTypes = {
         imageURL: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        authors: PropTypes.array.isRequired
+        authors: PropTypes.array.isRequired,
+        bookShelf: PropTypes.string.isRequired
+    }
+
+    state = {
+        shelf: ""
+    }
+
+    componentDidMount() {
+        this.setState({ shelf: this.props.bookShelf });
+    }
+
+    moveBook(event) {
+
     }
 
     render() {
@@ -15,7 +28,7 @@ class BookInstance extends React.Component {
                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.imageURL})` }}></div>
 
                     <div className="book-shelf-changer">
-                        <select>
+                        <select onChange={(event) => this.moveBook(event.target.value)}>
                             <option value="none" disabled>Move to...</option>
                             <option value="currentlyReading">Currently Reading</option>
                             <option value="wantToRead">Want to Read</option>
