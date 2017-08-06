@@ -6,9 +6,13 @@ import ListBooks from "./components/ListBooks";
 import "./App.css";
 
 class BooksAppNew extends React.Component {
+    state = {
+        books: []
+    }
+
     componentDidMount() {
         BooksAPI.getAll().then((books) => {
-            console.log(books);
+            this.setState({ books: books });
         });
     }
 
