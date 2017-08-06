@@ -8,6 +8,13 @@ class BookShelf extends React.Component {
         books: PropTypes.array.isRequired
     }
 
+    moveBook(newShelf) {
+        if (newShelf !== "none" && newShelf !== this.state.shelf) {
+            console.log(newShelf);
+            console.log(this);
+        }
+    }
+
     render () {
         return (
             <div className="bookshelf">
@@ -16,7 +23,14 @@ class BookShelf extends React.Component {
                 <div className="bookshelf-books">
                     <ol className="books-grid">
                         {this.props.books.map((book) => (
-                            <li key={book.id}><BookInstance title={ book.title } authors={ book.authors } imageURL={ book.imageLinks.smallThumbnail } bookShelf={book.shelf}/></li>
+                            <li key={book.id}>
+                                <BookInstance
+                                    title={ book.title }
+                                    authors={ book.authors }
+                                    imageURL={ book.imageLinks.smallThumbnail }
+                                    bookShelf={book.shelf}
+                                    onMoveBook={this.moveBook}/>
+                            </li>
                         ))}
                     </ol>
                 </div>
