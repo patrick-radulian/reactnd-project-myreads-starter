@@ -7,6 +7,27 @@ class BookInstance extends React.Component {
         onMoveBook: PropTypes.func.isRequired
     }
 
+    state = {
+        options: [
+            {
+                label: "Currently Reading",
+                value: "currentlyReading"
+            },
+            {
+                label: "Want to Read",
+                value: "wantToRead"
+            },
+            {
+                label: "Read",
+                value: "read"
+            },
+            {
+                label: "None",
+                value: "none"
+            }
+        ]
+    }
+
     render() {
         return (
             <div className="book">
@@ -16,10 +37,12 @@ class BookInstance extends React.Component {
                     <div className="book-shelf-changer">
                         <select onChange={(event) => this.props.onMoveBook(this.props.book, event.target.value)}>
                             <option value="none" disabled>Move to...</option>
-                            <option value="currentlyReading">Currently Reading</option>
-                            <option value="wantToRead">Want to Read</option>
-                            <option value="read">Read</option>
-                            <option value="none">None</option>
+
+                            {this.state.options.map((option) => {
+                                let selected = this.props.book.shelf === option.value ? true : false;
+
+                                return <option value={option.value} selected={selected}>{option.label}</option>
+                            })}
                         </select>
                     </div>
                 </div>
