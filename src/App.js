@@ -7,12 +7,20 @@ import "./App.css";
 
 class BooksAppNew extends React.Component {
     state = {
-        books: []
+        books: {
+            currentlyReading: [],
+            wantToRead: [],
+            read: []
+        }
     }
 
     componentDidMount() {
         BooksAPI.getAll().then((books) => {
-            this.setState({ books: books });
+            this.setState({ books: {
+                currentlyReading: books.filter((book) => { return book.shelf === "currentlyReading" }),
+                wantToRead: books.filter((book) => { return book.shelf === "wantToRead" }),
+                read: books.filter((book) => { return book.shelf === "read" })
+            }});
         });
     }
 
