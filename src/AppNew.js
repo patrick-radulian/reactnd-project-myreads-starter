@@ -7,7 +7,12 @@ class BooksAppNew extends React.Component {
     render() {
         return (
             <div className="app">
+                <Route exact path="/" render={() => {
 
+                }}/>
+                <Route exact path="/search" render={() => {
+
+                }}/>
             </div>
         )
     }
