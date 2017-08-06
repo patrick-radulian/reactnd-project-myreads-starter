@@ -5,14 +5,8 @@ import PropTypes from "prop-types";
 class BookShelf extends React.Component {
     static PropTypes = {
         bookShelfTitle: PropTypes.string.isRequired,
-        books: PropTypes.array.isRequired
-    }
-
-    moveBook(newShelf) {
-        if (newShelf !== "none" && newShelf !== this.state.shelf) {
-            console.log(newShelf);
-            console.log(this);
-        }
+        books: PropTypes.array.isRequired,
+        onMoveBook: PropTypes.func.isRequired
     }
 
     render () {
@@ -29,7 +23,7 @@ class BookShelf extends React.Component {
                                     authors={ book.authors }
                                     imageURL={ book.imageLinks.smallThumbnail }
                                     bookShelf={book.shelf}
-                                    onMoveBook={this.moveBook}/>
+                                    onMoveBook={this.props.onMoveBook}/>
                             </li>
                         ))}
                     </ol>

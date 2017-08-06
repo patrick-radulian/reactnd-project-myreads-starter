@@ -7,7 +7,7 @@ class BookInstance extends React.Component {
         title: PropTypes.string.isRequired,
         authors: PropTypes.array.isRequired,
         bookShelf: PropTypes.string.isRequired,
-        onMoveBook: PropTypes.func
+        onMoveBook: PropTypes.func.isRequired
     }
 
     state = {

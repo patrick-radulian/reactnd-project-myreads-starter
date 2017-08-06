@@ -5,7 +5,8 @@ import PropTypes from "prop-types";
 
 class ListBooks extends React.Component {
     static PropTypes = {
-        books: PropTypes.array.isRequired
+        books: PropTypes.array.isRequired,
+        onMoveBook: PropTypes.func.isRequired
     }
 
     render() {
@@ -20,7 +21,7 @@ class ListBooks extends React.Component {
                 </div>
 
                 <div className="list-books-content">
-                    <Bookshelf bookShelfTitle="Currently Reading" books={currentlyReading}/>
+                    <Bookshelf bookShelfTitle="Currently Reading" books={currentlyReading} onMoveBook={this.props.onMoveBook}/>
                     <Bookshelf bookShelfTitle="Want To Read" books={wantToRead}/>
                     <Bookshelf bookShelfTitle="Read" books={read}/>
                 </div>
