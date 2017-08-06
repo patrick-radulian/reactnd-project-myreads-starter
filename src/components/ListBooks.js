@@ -20,9 +20,9 @@ class ListBooks extends React.Component {
                 </div>
 
                 <div className="list-books-content">
-                    <Bookshelf bookShelfTitle="Currently Reading"/>
-                    <Bookshelf bookShelfTitle="Want To Read"/>
-                    <Bookshelf bookShelfTitle="Read"/>
+                    <Bookshelf bookShelfTitle="Currently Reading" books={currentlyReading}/>
+                    <Bookshelf bookShelfTitle="Want To Read" books={wantToRead}/>
+                    <Bookshelf bookShelfTitle="Read" books={read}/>
                 </div>
 
                 <div className="open-search">
