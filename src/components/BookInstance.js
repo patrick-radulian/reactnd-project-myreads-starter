@@ -7,15 +7,6 @@ class BookInstance extends React.Component {
         onMoveBook: PropTypes.func.isRequired
     }
 
-    state = {
-        shelf: ""
-    }
-
-    componentDidMount() {
-        this.setState({ shelf: this.props.bookShelf });
-        console.log(this.props.book);
-    }
-
     render() {
         return (
             <div className="book">
@@ -23,7 +14,7 @@ class BookInstance extends React.Component {
                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})` }}></div>
 
                     <div className="book-shelf-changer">
-                        <select onChange={(event) => this.props.onMoveBook(event.target.value)}>
+                        <select onChange={(event) => this.props.onMoveBook(this.props.book, event.target.value)}>
                             <option value="none" disabled>Move to...</option>
                             <option value="currentlyReading">Currently Reading</option>
                             <option value="wantToRead">Want to Read</option>

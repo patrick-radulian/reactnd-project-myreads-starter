@@ -16,8 +16,12 @@ class BooksAppNew extends React.Component {
         });
     }
 
-    moveBook(event) {
-        console.log(event);
+    moveBook(book, newShelf) {
+        if (newShelf !== "none" && newShelf !== book.shelf) {
+            BooksAPI.update(book, newShelf).then((response) => {
+                console.log(response);
+            });
+        }
     }
 
     render() {

@@ -22,8 +22,8 @@ class ListBooks extends React.Component {
 
                 <div className="list-books-content">
                     <Bookshelf bookShelfTitle="Currently Reading" books={currentlyReading} onMoveBook={this.props.onMoveBook}/>
-                    <Bookshelf bookShelfTitle="Want To Read" books={wantToRead}/>
-                    <Bookshelf bookShelfTitle="Read" books={read}/>
+                    <Bookshelf bookShelfTitle="Want To Read" books={wantToRead} onMoveBook={this.props.onMoveBook}/>
+                    <Bookshelf bookShelfTitle="Read" books={read} onMoveBook={this.props.onMoveBook}/>
                 </div>
 
                 <div className="open-search">
