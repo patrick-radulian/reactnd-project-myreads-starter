@@ -1,6 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class BookInstance extends React.Component {
+    static PropTypes = {
+        imageURL: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        authors: PropTypes.array.isRequired
+    }
+
     render() {
         return (
             <div className="book">
