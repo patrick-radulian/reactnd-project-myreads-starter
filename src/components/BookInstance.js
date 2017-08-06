@@ -35,13 +35,11 @@ class BookInstance extends React.Component {
                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})` }}></div>
 
                     <div className="book-shelf-changer">
-                        <select onChange={(event) => this.props.onMoveBook(this.props.book, event.target.value)}>
+                        <select defaultValue={this.props.book.shelf} onChange={(event) => this.props.onMoveBook(this.props.book, event.target.value)}>
                             <option value="none" disabled>Move to...</option>
 
                             {this.state.options.map((option) => {
-                                let selected = this.props.book.shelf === option.value ? true : false;
-
-                                return <option value={option.value} selected={selected}>{option.label}</option>
+                                return <option key={option.value} value={option.value}>{option.label}</option>
                             })}
                         </select>
                     </div>
