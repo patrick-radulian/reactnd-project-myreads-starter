@@ -132,6 +132,13 @@ body, .app {
 .book-authors {
   color: #999;
 }
+.book-authors ul {
+  padding: 0;
+}
+.book-authors li {
+  padding: 0;
+  list-style-type: none;
+}
 
 .book-top {
   position: relative;
