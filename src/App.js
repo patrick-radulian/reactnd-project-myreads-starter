@@ -6,6 +6,12 @@ import ListBooks from "./components/ListBooks";
 import "./App.css";
 
 class BooksAppNew extends React.Component {
+    componentDidMount() {
+        BooksAPI.getAll().then((books) => {
+            console.log(books);
+        });
+    }
+
     render() {
         return (
             <div className="app">
