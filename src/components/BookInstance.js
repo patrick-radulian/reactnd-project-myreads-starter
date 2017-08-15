@@ -29,10 +29,22 @@ class BookInstance extends React.Component {
     }
 
     render() {
+        let bgValue = "";
+
+        if (this.props.book.hasOwnProperty("imageLinks")) {
+            bgValue = `url(${this.props.book.imageLinks.thumbnail})`;
+        } else {
+            bgValue = "#FFF";
+        }
+
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})` }}></div>
+                    <div className="book-cover" style={{ textAlign: "center", width: 128, height: 193, background: bgValue }}>
+                        {!this.props.book.hasOwnProperty("imageLinks") && (
+                            <p>No cover available</p>
+                        )}
+                    </div>
 
                     <div className="book-shelf-changer">
                         <select defaultValue={this.props.book.shelf} onChange={(event) => this.props.onMoveBook(this.props.book, event.target.value)}>
@@ -46,13 +58,15 @@ class BookInstance extends React.Component {
                 </div>
 
                 <div className="book-title">{this.props.book.title}</div>
-                <div className="book-authors">
-                    <ul>
-                        {this.props.book.authors.map((author) => (
-                            <li key={author}>{author}</li>
-                        ))}
-                    </ul>
-                </div>
+                {this.props.book.authors && this.props.book.authors.length > 0 && (
+                    <div className="book-authors">
+                        <ul>
+                            {this.props.book.authors.map((author) => (
+                                <li key={author}>{author}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
             </div>
         )
     }
