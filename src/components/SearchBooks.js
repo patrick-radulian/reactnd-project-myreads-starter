@@ -16,7 +16,7 @@ class SearchBooks extends React.Component {
         books: []
     }
 
-    constructor () {
+    constructor() {
         super();
 
         this.queryTimeout = null;
@@ -82,9 +82,7 @@ class SearchBooks extends React.Component {
                             </ol>
                         ) : (
                             this.state.query.length > 0 && !this.state.queryRunning && (
-                                <div>
-                                    No search results.
-                                </div>
+                                <div>No search results.</div>
                             )
                         )
                     }

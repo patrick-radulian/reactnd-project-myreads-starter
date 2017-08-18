@@ -9,10 +9,10 @@ class BookShelf extends React.Component {
         onMoveBook: PropTypes.func.isRequired
     }
 
-    render () {
+    render() {
         return (
             <div className="bookshelf">
-                <h2 className="bookshelf-title">{ this.props.bookShelfTitle }</h2>
+                <h2 className="bookshelf-title">{this.props.bookShelfTitle}</h2>
 
                 <div className="bookshelf-books">
                     <ol className="books-grid">
