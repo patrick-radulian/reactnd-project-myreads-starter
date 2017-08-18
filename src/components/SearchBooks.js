@@ -3,6 +3,7 @@ import * as BooksAPI from "../BooksAPI";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import BookInstance from "./BookInstance";
+import infoIcon from "../icons/ic_info_black_24px.svg";
 
 class SearchBooks extends React.Component {
     static PropTypes = {
@@ -77,6 +78,13 @@ class SearchBooks extends React.Component {
                                 {this.state.books.map((foundBook) => (
                                     <li key={foundBook.id}>
                                         <BookInstance {...{book: this.isOnShelf(foundBook) || foundBook}} onMoveBook={this.props.onMoveBook}/>
+
+                                        {this.isOnShelf(foundBook) && (
+                                            <div className="book-owned">
+                                                <img src={infoIcon} alt=""/>
+                                                <span>This book is on your <em>"{this.isOnShelf(foundBook).shelf}"</em> shelf.</span>
+                                            </div>
+                                        )}
                                     </li>
                                 ))}
                             </ol>

@@ -115,6 +115,7 @@ body, .app {
   flex-wrap: wrap;
 }
 .books-grid li {
+  width: 170px;
   padding: 10px 15px;
   text-align: left;
 }
@@ -138,6 +139,10 @@ body, .app {
 .book-authors li {
   padding: 0;
   list-style-type: none;
+}
+.book-owned {
+  color: #A00;
+  font-size: 0.8rem;
 }
 
 .book-top {
