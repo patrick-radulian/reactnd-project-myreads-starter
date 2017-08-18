@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 class BookInstance extends React.Component {
     static PropTypes = {
         book: PropTypes.object.isRequired,
-        onMoveBook: PropTypes.func.isRequired
+        onMoveBook: PropTypes.func.isRequired,
+        shelf: PropTypes.string
     }
 
     state = {
@@ -28,6 +29,10 @@ class BookInstance extends React.Component {
         ]
     }
 
+    componentDidMount() {
+        console.log(this.props.shelf);
+    }
+
     render() {
         let bgValue = "";
 
@@ -47,7 +52,7 @@ class BookInstance extends React.Component {
                     </div>
 
                     <div className="book-shelf-changer">
-                        <select defaultValue={this.props.book.shelf} onChange={(event) => this.props.onMoveBook(this.props.book, event.target.value)}>
+                        <select defaultValue={this.props.shelf} onChange={(event) => this.props.onMoveBook(this.props.book, event.target.value)}>
                             <option value="none" disabled>Move to...</option>
 
                             {this.state.options.map((option) => {
