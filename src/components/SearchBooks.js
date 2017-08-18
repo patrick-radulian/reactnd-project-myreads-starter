@@ -16,24 +16,34 @@ class SearchBooks extends React.Component {
         books: []
     }
 
-    updateQuery(newValue) {
-        this.setState({
-            query: newValue,
-            queryRunning: true
-        });
+    constructor () {
+        super();
 
-        if (newValue.length > 0) {
-            BooksAPI.search(newValue, 20).then((books) => {
+        this.queryTimeout = null;
+
+        this.updateQuery = (newValue) => {
+            this.setState({
+                query: newValue,
+                queryRunning: true
+            });
+
+            if (newValue.length > 0) {
+                window.clearTimeout(this.queryTimeout);
+
+                this.queryTimeout = window.setTimeout(() => {
+                    BooksAPI.search(newValue, 20).then((books) => {
+                        this.setState({
+                            books: books,
+                            queryRunning: false
+                        });
+                    });
+                }, 350);
+            } else {
                 this.setState({
-                    books: books,
+                    books: [],
                     queryRunning: false
                 });
-            });
-        } else {
-            this.setState({
-                books: [],
-                queryRunning: false
-            });
+            }
         }
     }
 
