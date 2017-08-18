@@ -52,8 +52,7 @@ class SearchBooks extends React.Component {
             if (this.props.shelfBooks.hasOwnProperty(shelf)) {
                 for (let shelfBook of this.props.shelfBooks[shelf]) {
                     if (shelfBook.id === searchResultBook.id) {
-                        return shelfBook
-                        break
+                        return shelfBook;
                     }
                 }
             }
