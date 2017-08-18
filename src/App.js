@@ -29,7 +29,7 @@ class BooksAppNew extends React.Component {
     }
 
     moveBook(book, newShelf) {
-        if (newShelf !== "none" && newShelf !== book.shelf) {
+        if (newShelf !== book.shelf) {
             BooksAPI.update(book, newShelf).then((response) => {
                 this.getBooks();
             });

@@ -38,12 +38,13 @@ class SearchBooks extends React.Component {
     }
 
     isOnShelf(searchResultBook) {
-        outer_loop:
         for (let shelf in this.props.shelfBooks) {
-            for (let shelfBook of this.props.shelfBooks[shelf]) {
-                if (shelfBook.id === searchResultBook.id) {
-                    return shelfBook.shelf;
-                    break outer_loop;
+            if (this.props.shelfBooks.hasOwnProperty(shelf)) {
+                for (let shelfBook of this.props.shelfBooks[shelf]) {
+                    if (shelfBook.id === searchResultBook.id) {
+                        return shelfBook
+                        break
+                    }
                 }
             }
         }
@@ -64,9 +65,9 @@ class SearchBooks extends React.Component {
                     {
                         this.state.books.length > 0 ? (
                             <ol className="books-grid">
-                                {this.state.books.map((book) => (
-                                    <li key={book.id}>
-                                        <BookInstance shelf={this.isOnShelf(book)} book={book} onMoveBook={this.props.onMoveBook}/>
+                                {this.state.books.map((foundBook) => (
+                                    <li key={foundBook.id}>
+                                        <BookInstance {...{book: this.isOnShelf(foundBook) || foundBook}} onMoveBook={this.props.onMoveBook}/>
                                     </li>
                                 ))}
                             </ol>

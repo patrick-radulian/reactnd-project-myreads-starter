@@ -29,10 +29,6 @@ class BookInstance extends React.Component {
         ]
     }
 
-    componentDidMount() {
-        console.log(this.props.shelf);
-    }
-
     render() {
         let bgValue = "";
 
@@ -45,18 +41,21 @@ class BookInstance extends React.Component {
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ textAlign: "center", width: 128, height: 193, background: bgValue }}>
+                    <div className="book-cover" style={{textAlign: "center", width: 128, height: 193, background: bgValue}}>
                         {!this.props.book.hasOwnProperty("imageLinks") && (
                             <p>No cover available</p>
                         )}
                     </div>
 
                     <div className="book-shelf-changer">
-                        <select defaultValue={this.props.shelf} onChange={(event) => this.props.onMoveBook(this.props.book, event.target.value)}>
+                        <select defaultValue={this.props.book.shelf || "none"} onChange={(event) => this.props.onMoveBook(this.props.book, event.target.value)}>
                             <option value="none" disabled>Move to...</option>
 
                             {this.state.options.map((option) => {
-                                return <option key={option.value} value={option.value}>{option.label}</option>
+                                return <option
+                                            key={option.value}
+                                            value={option.value}
+                                            {...option.value === this.props.book.shelf ? {disabled: "disabled"} : {}}>{option.label}</option>
                             })}
                         </select>
                     </div>
