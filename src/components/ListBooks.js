@@ -23,7 +23,7 @@ class ListBooks extends React.Component {
                 </div>
 
                 <div className="open-search">
-                    <Link to="/search" className="open-search">Add a book</Link>
+                    <Link to={process.env.PUBLIC_URL + "/search"} className="open-search">Add a book</Link>
                 </div>
           </div>
         )
