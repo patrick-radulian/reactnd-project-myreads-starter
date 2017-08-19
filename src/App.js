@@ -39,12 +39,12 @@ class BooksAppNew extends React.Component {
     render() {
         return (
             <div className="app">
-                <Route exact path="/" render={() => (
+                <Route exact path={process.env.PUBLIC_URL + "/"} render={() => (
                     <ListBooks books={this.state.books} onMoveBook={(book, newShelf) => {
                         this.moveBook(book, newShelf);
                     }}/>
                 )}/>
-                <Route exact path="/search" render={() => (
+                <Route exact path={process.env.PUBLIC_URL + "/search"} render={() => (
                     <SearchBooks shelfBooks={this.state.books} onMoveBook={(book, newShelf) => {
                         this.moveBook(book, newShelf);
                     }}/>
