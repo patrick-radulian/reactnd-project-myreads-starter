@@ -141,8 +141,14 @@ body, .app {
   list-style-type: none;
 }
 .book-owned {
-  color: #A00;
+  color: #00991A;
   font-size: 0.8rem;
+}
+.book-owned img {
+  display: inline;
+  height: 1rem;
+  margin-right: 0.2rem;
+  vertical-align: text-top;
 }
 
 .book-top {
