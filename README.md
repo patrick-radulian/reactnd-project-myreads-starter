@@ -1,8 +1,16 @@
 # MyReads: A Book Lending App
 
+A React application, allowing you to organize your book collection into three categories.
+
 ## Installation instructions
 
-### 1. Clone the repositors to your local machine
+These instructions will help you install the app on your local machine.
+
+#### Prerequisites
+
+Make sure you have Git and Node installed, before you proceed.
+
+#### 1. Clone the repositors to your local machine
 
 ```
 $ **git clone https://github.com/patrick-radulian/reactnd-project-myreads-starter.git**
@@ -14,7 +22,7 @@ Receiving objects: 100% (411/411), 643.74 KiB | 621.00 KiB/s, done.
 Resolving deltas: 100% (245/245), done.
 ```
 
-### 2. Run "npm install" in your local repository's folder
+#### 2. Run "npm install" in your local repository's folder
 
 ```
 $ cd reactnd-project-myreads-starter/
@@ -22,7 +30,7 @@ $ cd reactnd-project-myreads-starter/
 $ **npm install**
 ```
 
-### 3. Start the app with "npm start"
+#### 3. Start the app with "npm start"
 
 ```
 ~/reactnd-project-myreads-starter (master)
@@ -43,6 +51,8 @@ Note that the development build is not optimized.
 To create a production build, use npm run build.
 ```
 
-### 4. Open your browser at http://localhost:3000/
+#### 4. Open your browser at http://localhost:3000/
+
+This is what the app should look like, once you open it in your browser.
 
 ![App preview](https://github.com/patrick-radulian/reactnd-project-myreads-starter/blob/master/public/preview.png "My-Reads App")
