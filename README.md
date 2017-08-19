@@ -43,3 +43,4 @@ To create a production build, use npm run build.
 
 ##4. Open your browser at http://localhost:3000/
 
+![App preview](https://github.com/patrick-radulian/reactnd-project-myreads-starter/blob/master/public/preview.png "My-Reads App")
